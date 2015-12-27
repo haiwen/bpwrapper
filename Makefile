@@ -44,6 +44,8 @@ walk:
 install: $(BPWRAPPER_LIB)
 	install -c -m 644 $(BPWRAPPER_LIB) /usr/local/lib
 	install -c -m 644 $(BPWRAPPER_HEADER) /usr/local/include/
+	mkdir -p /usr/local/lib/pkgconfig/
+	install -c -m 644 bpwrapper.pc /usr/local/lib/pkgconfig/
 
 uninstall:
 	rm -f /usr/local/lib/$(BPWRAPPER_LIB)
