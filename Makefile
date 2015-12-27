@@ -1,4 +1,5 @@
 BPWRAPPER_LIB=libbpwrapper.a
+BPWRAPPER_HEADER=c_bpwrapper.h
 
 all: $(BPWRAPPER_LIB)
 
@@ -42,5 +43,10 @@ walk:
 
 install: $(BPWRAPPER_LIB)
 	install -c -m 644 $(BPWRAPPER_LIB) /usr/local/lib
+	install -c -m 644 $(BPWRAPPER_HEADER) /usr/local/include/
+
+uninstall:
+	rm -f /usr/local/lib/$(BPWRAPPER_LIB)
+	rm -f /usr/local/include/$(BPWRAPPER_HEADER)
 
 .phony: clean all dumpsym bpclean

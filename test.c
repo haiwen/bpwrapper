@@ -10,8 +10,7 @@ void crash()
 
 int main(int argc, char* argv[])
 {
-  CBPWrapperExceptionHandler eh;
-  eh = newCBPWrapperExceptionHandler();
+  newCBPWrapperExceptionHandler();
   crash();
   return 0;
 }

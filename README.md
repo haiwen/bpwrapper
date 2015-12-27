@@ -37,7 +37,7 @@ sudo make install
 Then:
 
 - Modify the `main` function of your source code. See [test.c](test.c) for example
-- Link your program with `-lbpwrapper`
+- Link your program with `-lbpwrapper -lbreakpad -lbreakpad_client -lstdc++`
 
 After that, each time the program crashes, a breakpad minidump file would be generated. See [breadpad doc](https://chromium.googlesource.com/breakpad/breakpad/+/816f242/docs/linux_starter_guide.md) about how to get a full stacktrace and other info from this minidump file.
 
