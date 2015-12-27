@@ -1,0 +1,27 @@
+# Ignore common compiled artifacts.
+*~
+*.o
+lib*.a
+/breakpad.pc
+/breakpad-client.pc
+
+# Ignore autotools generated artifacts.
+.deps
+.dirstamp
+autom4te.cache/
+/config.cache
+config.h
+/config.log
+/config.status
+stamp-h1
+
+# Ignore compiled Python files.
+*.pyc
+
+
+# compibled binraies
+testbp
+
+# minidump symbols and dumps
+*.dmp
+*.syms
