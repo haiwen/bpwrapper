@@ -1,0 +1,48 @@
+minidump_stackwalk *.dmp ./symbols/
+Operating system: Linux
+                  0.0.0 Linux 3.19.0-37-generic #42~14.04.1-Ubuntu SMP Mon Nov 23 15:13:51 UTC 2015 x86_64
+CPU: amd64
+     family 6 model 60 stepping 3
+     1 CPU
+
+Crash reason:  SIGSEGV
+Crash address: 0x0
+Process uptime: not available
+
+Thread 0 (crashed)
+ 0  testbp!crash [test.c : 7 + 0x4]
+    rax = 0x0000000000000000   rdx = 0x0000000000000001
+    rcx = 0x0000000000000000   rbx = 0x0000000000000000
+    rsi = 0x00007ffe027360bf   rdi = 0x000000000121a010
+    rbp = 0x00007ffe02736180   rsp = 0x00007ffe02736180
+     r8 = 0x0000000000000000    r9 = 0x0000000000000002
+    r10 = 0x00007ffe02735e70   r11 = 0x00007f90450997c0
+    r12 = 0x0000000000401d34   r13 = 0x00007ffe02736290
+    r14 = 0x0000000000000000   r15 = 0x0000000000000000
+    rip = 0x0000000000401e2d
+    Found by: given as instruction pointer in context
+ 1  testbp!main [test.c : 15 + 0xa]
+    rbx = 0x0000000000000000   rbp = 0x00007ffe027361b0
+    rsp = 0x00007ffe02736190   r12 = 0x0000000000401d34
+    r13 = 0x00007ffe02736290   r14 = 0x0000000000000000
+    r15 = 0x0000000000000000   rip = 0x0000000000401e57
+    Found by: call frame info
+ 2  libc-2.19.so + 0x21ec5
+    rbx = 0x0000000000000000   rbp = 0x0000000000000000
+    rsp = 0x00007ffe027361c0   r12 = 0x0000000000401d34
+    r13 = 0x00007ffe02736290   r14 = 0x0000000000000000
+    r15 = 0x0000000000000000   rip = 0x00007f9044ceaec5
+    Found by: call frame info
+ 3  testbp!crash [test.c : 8 + 0x2]
+    rsp = 0x00007ffe027361e0   rip = 0x0000000000401e35
+    Found by: stack scanning
+
+Loaded modules:
+0x00400000 - 0x00416fff  testbp  ???  (main)
+0x7f90449c3000 - 0x7f9044cc8fff  libm-2.19.so  ???
+0x7f9044cc9000 - 0x7f9045088fff  libc-2.19.so  ???  (WARNING: No symbols, libc-2.19.so, C64DC9301F6A51E980C3D68D2B89E5760)
+0x7f904508e000 - 0x7f90452a7fff  libpthread-2.19.so  ???
+0x7f90452ac000 - 0x7f90454c1fff  libgcc_s.so.1  ???
+0x7f90454c2000 - 0x7f90457b0fff  libstdc++.so.6.0.19  ???
+0x7f90457c6000 - 0x7f90457e8fff  ld-2.19.so  ???
+0x7ffe0276b000 - 0x7ffe0276cfff  linux-gate.so  ???

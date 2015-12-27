@@ -1,4 +1,6 @@
-all: testbp
+BPWRAPPER_LIB=libbpwrapper.a
+
+all: $(BPWRAPPER_LIB)
 
 CC=gcc
 CXX=g++
@@ -17,16 +19,16 @@ LDFLAGS += \
 
 BP_SYMBOLS_FILE=testbp.syms
 
-testbp: libbpwrapper.a test.c
+testbp: $(BPWRAPPER_LIB) test.c
 	$(CC) $(CFLAGS) -o $@ test.c $(LDFLAGS)
 
-libbpwrapper.a: c_bpwrapper.o
-	ar rcs libbpwrapper.a c_bpwrapper.o
+$(BPWRAPPER_LIB): c_bpwrapper.o
+	ar rcs $(BPWRAPPER_LIB) c_bpwrapper.o
 
 c_bpwrapper.o: c_bpwrapper.cpp
 	$(CXX) $(CFLAGS) -o $@ -c -fPIC -I. $<
 
-dumpsym:
+dumpsym: testbp
 	./dumpsyms.sh
 
 clean:
@@ -38,5 +40,7 @@ bpclean:
 walk:
 	minidump_stackwalk *.dmp ./symbols/
 
+install: $(BPWRAPPER_LIB)
+	install -c -m 644 $(BPWRAPPER_LIB) /usr/local/lib
 
 .phony: clean all dumpsym bpclean
