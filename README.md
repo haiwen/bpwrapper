@@ -1,4 +1,5 @@
-# bpwrapper
+Introduction [![Build Status](https://secure.travis-ci.org/haiwen/bpwrapper.svg?branch=master)](http://travis-ci.org/haiwen/bpwrapper)
+============
 
 A simple plain C wrapper for C++ Google Breakpad.
 What is Google Breakpad client library? Read about it here: [Getting Started With Breakpad](https://chromium.googlesource.com/breakpad/breakpad/+/816f242/docs/getting_started_with_breakpad.md)
