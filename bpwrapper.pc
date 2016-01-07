@@ -1,9 +1,0 @@
-prefix=/usr/local
-libdir=${prefix}/lib/
-includedir=${prefix}/include/
-
-Name: bpwrapper
-Description: Client library for accessing seafile service.
-Version: 0.1
-Libs: -L${libdir} -lbpwrapper -lstdc++
-Cflags: -I${includedir}

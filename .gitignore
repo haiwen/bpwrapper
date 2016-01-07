@@ -8,12 +8,30 @@ lib*.a
 # Ignore autotools generated artifacts.
 .deps
 .dirstamp
-autom4te.cache/
-/config.cache
-config.h
-/config.log
-/config.status
 stamp-h1
+Makefile.in
+ltmain.sh
+libtool
+*.lo
+*.la
+install-sh
+depcomp
+config.guess
+config.h
+config.log
+config.status
+config.sub
+config.cache
+configure
+*/.deps
+autom4te*
+aclocal.m4
+bpwrapper.pc
+compile
+config.h.in
+missing
+.libs
+Makefile
 
 # Ignore compiled Python files.
 *.pyc
@@ -25,3 +43,4 @@ testbp
 # minidump symbols and dumps
 *.dmp
 *.syms
+tests/test-bpwrapper

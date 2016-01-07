@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: bpwrapper
+Description: C Wrapper for breadpad c++ library
+Version: @VERSION@
+Libs: -L${libdir} -lbpwrapper -lstdc++
+Cflags: -I${includedir}
