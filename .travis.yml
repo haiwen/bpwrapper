@@ -3,10 +3,6 @@ language: cpp
 compiler:
  - gcc
  - clang
-# addons:
-#   apt:
-#     packages:
-#       - net-tools
 cache:
   directories:
     - $HOME/.ccache
@@ -14,6 +10,9 @@ before_install:
   - ccache -s
   - export PATH=/usr/lib/ccache:${PATH}
 install:
- - ./scripts/install-breakpad
+ - ./scripts/install-breakpad.sh
 script:
- - ./autogen.sh && 
+ - export PKG_CONFIG_PATH=/tmp/usr/lib/pkgconfig:${PKG_CONFIG_PATH}
+ - ./autogen.sh
+ - ./configure
+ - make check -j4

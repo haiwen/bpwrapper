@@ -16,3 +16,5 @@ libbpwrapper_la_LIBADD = @BREAKPAD_LIBS@ @BREAKPADCLIENT_LIBS@
 
 bpwrapperdir = $(includedir)
 bpwrapper_HEADERS = c_bpwrapper.h
+
+SUBDIRS = tests
