@@ -1,10 +1,10 @@
 #!/bin/bash
 
-BP_SYMBOLS_FILE=testbp.sym
+BP_SYMBOLS_FILE=test-bpwrapper.sym
 
-dump_syms testbp > ${BP_SYMBOLS_FILE}
+dump_syms tests/test-bpwrapper* > ${BP_SYMBOLS_FILE}
 
 symbol_id=$(head -1 ${BP_SYMBOLS_FILE} | awk '{printf $4}')
 
-mkdir -p ./symbols/testbp/${symbol_id}/
-mv ${BP_SYMBOLS_FILE} ./symbols/testbp/${symbol_id}/
+mkdir -p ./symbols/test-bpwrapper/${symbol_id}/
+mv ${BP_SYMBOLS_FILE} ./symbols/test-bpwrapper/${symbol_id}/

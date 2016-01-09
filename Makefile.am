@@ -1,10 +1,12 @@
+ACLOCAL_AMFLAGS = -I m4
+
 pcfiles = bpwrapper.pc
 pkgconfig_DATA = $(pcfiles)
 pkgconfigdir = $(libdir)/pkgconfig
 
 AM_CPPFLAGS = @BREAKPAD_CFLAGS@ \
 	@BREAKPADCLIENT_CFLAGS@ \
-	-Wall
+	-Wall -std=gnu++11
 
 ## library rules
 lib_LTLIBRARIES = libbpwrapper.la

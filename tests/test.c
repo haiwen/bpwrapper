@@ -10,7 +10,11 @@ void crash()
 
 int main(int argc, char* argv[])
 {
-  newCBPWrapperExceptionHandler();
+  const char *dump_path = "test.dmp";
+  if (argc > 1) {
+      dump_path = argv[1];
+  }
+  newCBPWrapperExceptionHandler(dump_path);
   crash();
   return 0;
 }
