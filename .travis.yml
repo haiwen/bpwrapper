@@ -3,12 +3,20 @@ language: cpp
 compiler:
  - gcc
  - clang
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
 cache:
   directories:
     - $HOME/.ccache
 before_install:
   - ccache -s
   - export PATH=/usr/lib/ccache:${PATH}
+  - if [[ $CC != clang* ]]; then export CC=gcc-4.8 CXX=g++-4.8 CFLAGS="-std=gnu++11 $CFLAGS"; fi
 install:
  - ./scripts/install-breakpad.sh
 script:
