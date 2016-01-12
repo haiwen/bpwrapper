@@ -19,10 +19,10 @@ bool DumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
 }
 
 extern "C" {
-CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *path)
+CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *dump_dir)
 {
     printf("init Simple breakpad\n");
-    google_breakpad::MinidumpDescriptor descriptor(".");
+    google_breakpad::MinidumpDescriptor descriptor(dump_dir);
     return reinterpret_cast<void*>(new google_breakpad::ExceptionHandler(
         descriptor, NULL, DumpCallback, NULL, true, -1));
 }
@@ -112,10 +112,10 @@ bool DumpCallback(const wchar_t* dump_path,
 
 
 extern "C" {
-CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *dump_path)
+CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *dump_dir)
 {
     printf("initializing breakpad exception handler\n");
-    std::wstring path = utf8ToWString("F:\\dumps\\");
+    std::wstring path = utf8ToWString(dump_dir);
     return reinterpret_cast<void*>(new google_breakpad::ExceptionHandler(
         path, NULL,
         (google_breakpad::ExceptionHandler::MinidumpCallback)DumpCallback, NULL,

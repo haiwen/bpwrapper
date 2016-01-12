@@ -10,7 +10,7 @@ void crash()
 
 int main(int argc, char* argv[])
 {
-  const char *dump_path = "test.dmp";
+  const char *dump_path = ".";
   if (argc > 1) {
       dump_path = argv[1];
   }

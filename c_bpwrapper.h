@@ -6,7 +6,7 @@ typedef void*   CBPWrapperExceptionHandler;
 extern "C"
 {
 #endif
-CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *path);
+CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *dump_dir);
 
 #ifdef __cplusplus
 }
