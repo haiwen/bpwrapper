@@ -14,7 +14,7 @@ bool DumpCallback(const google_breakpad::MinidumpDescriptor& descriptor,
                   void* context,
                   bool succeeded)
 {
-    printf("Dump path: %s\n", descriptor.path());
+    printf("program crashed, you can find the minidump in %s\n", descriptor.path());
     return succeeded;
 }
 
@@ -102,9 +102,9 @@ bool DumpCallback(const wchar_t* dump_path,
                   MDRawAssertionInfo* assertion,
                   bool succeeded)
 {
-    printf("dump succeeded = %s\n", succeeded ? "true" : "false");
-    printf("Dump path: %s\n", wStringToLocale(dump_path).c_str());
-    printf("Dump id: %s\n", wStringToLocale(minidump_id).c_str());
+    printf("program dump %s\n", succeeded ? "succeeded" : "failed");
+    printf("program crashed, you can find the minidump in %s\n", wStringToLocale(dump_path).c_str());
+    printf("minidump id: %s\n", wStringToLocale(minidump_id).c_str());
     return succeeded;
 }
 
@@ -112,7 +112,7 @@ bool DumpCallback(const wchar_t* dump_path,
 extern "C" {
 CBPWrapperExceptionHandler newCBPWrapperExceptionHandler(const char *dump_dir)
 {
-    printf("initializing breakpad exception handler\n");
+    printf("initializing crash reporter\n");
     std::wstring path = utf8ToWString(dump_dir);
     return reinterpret_cast<void*>(new google_breakpad::ExceptionHandler(
         path, NULL,
