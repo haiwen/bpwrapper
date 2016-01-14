@@ -102,11 +102,9 @@ bool DumpCallback(const wchar_t* dump_path,
                   MDRawAssertionInfo* assertion,
                   bool succeeded)
 {
-    printf("succeeded = %s\n", succeeded ? "true" : "false");
-    printf("Dump path: %s\n", wStringToLocale(dump_path));
-    printf("len(dump_path) = %d\n", wcslen(dump_path));
-    printf("Dump id: %s\n", wStringToLocale(minidump_id));
-    printf("len(minidump_id) = %d\n", wcslen(minidump_id));
+    printf("dump succeeded = %s\n", succeeded ? "true" : "false");
+    printf("Dump path: %s\n", wStringToLocale(dump_path).c_str());
+    printf("Dump id: %s\n", wStringToLocale(minidump_id).c_str());
     return succeeded;
 }
 
